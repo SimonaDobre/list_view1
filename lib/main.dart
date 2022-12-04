@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-
     super.initState();
     getMovies();
   }
@@ -83,12 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Builder(builder: (BuildContext context) {
-        if (isLoading) {
-          return const Center(child: CircularProgressIndicator());
-        }
+      body: Builder(
+        builder: (BuildContext context) {
+          if (isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-        return ListView.builder(
+          return ListView.builder(
             itemCount: titlesList.length,
             itemBuilder: (BuildContext context, int index) {
               final String currentTitle = titlesList[index];
@@ -149,8 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               );
             },
-        );
-      },
+          );
+        },
       ),
     );
   }
